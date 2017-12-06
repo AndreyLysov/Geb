@@ -1,32 +1,35 @@
 package steps
 
-import Page.AAPLogInPage
-import geb.Browser
+import cucumber.api.PendingException
+import org.junit.Assert
+import page.AAPLogInPage
+import page.APPStartPage
 
 import static cucumber.api.groovy.EN.*
 
-
-
-Given(~/^admin portal '(\d+)' login page$/) { arg1 ->
-    go "/administrator"
+Given(~/^open admin portal login page$/) { ->
+    to AAPLogInPage
+//    Assert.assertTrue(false)
 }
 
-When(~/^enter 'admin@crewportal\.cp' into the email field$/) { ->
-    // Write code here that turns the phrase above into concrete actions
-
+When(~/^enter "([^"]*)" into the email field$/) { String email ->
+    page.fillInEmail(email)
 }
 
-When(~/^enter '(\d+)' into the password field$/) { int arg1 ->
-    // Write code here that turns the phrase above into concrete actions
 
+
+When(~/^enter "([^"]*)" into the password field$/) { String password ->
+    page.fillInPassword(password)
 }
 
 When(~/^click the 'Log In' button$/) { ->
-    // Write code here that turns the phrase above into concrete actions
-
+    page.loginButton
 }
 
 Then(~/^user is on the Adonis Personnel Portal page$/) { ->
-    // Write code here that turns the phrase above into concrete actions
+    at APPStartPage
+}
 
+Then(~/^invalid credentials message is displayed$/) { ->
+    page.invalidCredentialsMessageIsAppeared()
 }
