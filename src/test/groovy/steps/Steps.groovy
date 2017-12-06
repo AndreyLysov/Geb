@@ -17,7 +17,6 @@ When(~/^enter "([^"]*)" into the email field$/) { String email ->
 }
 
 
-
 When(~/^enter "([^"]*)" into the password field$/) { String password ->
     page.fillInPassword(password)
 }
@@ -26,10 +25,23 @@ When(~/^click the 'Log In' button$/) { ->
     page.loginButton
 }
 
+
 Then(~/^user is on the Adonis Personnel Portal page$/) { ->
     at APPStartPage
 }
 
 Then(~/^invalid credentials message is displayed$/) { ->
     page.invalidCredentialsMessageIsAppeared()
+}
+
+Then(~/^HeadLoginLayout$/) { ->
+    page.HeadLoginLayout()
+}
+
+When(~/^click the 'Log off' button$/) { ->
+    page.logoffButton
+}
+
+Then(~/^user is on the admin portal login page$/) { ->
+    at AAPLogInPage
 }

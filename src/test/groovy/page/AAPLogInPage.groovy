@@ -22,6 +22,7 @@ class AAPLogInPage extends Page {
         loginButton
     }
 
+
     void fillInEmail(String email) {
         txtEmail << email
     }
@@ -32,5 +33,8 @@ class AAPLogInPage extends Page {
 
     void invalidCredentialsMessageIsAppeared() {
         Assert.assertEquals(true, invalidCredentialsMessage.isDisplayed())
+    }
+    void HeadLoginLayout() {
+        Assert.assertEquals(true, HeadLoginLayout.isDisplayed())
     }
 }
