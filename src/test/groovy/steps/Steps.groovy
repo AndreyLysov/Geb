@@ -33,3 +33,13 @@ Then(~/^user is on the Adonis Personnel Portal page$/) { ->
 Then(~/^invalid credentials message is displayed$/) { ->
     page.invalidCredentialsMessageIsAppeared()
 }
+When(~/^click the 'Log off' button$/) { ->
+    page.logoffButton
+}
+Then(~/^admin portal login page is opened$/) { ->
+    at AAPLogInPage
+}
+And(~/^email field is empty$/) { ->
+    page.txtEmail << 'say hi'
+    Assert.assertTrue(false)
+}

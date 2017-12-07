@@ -8,4 +8,8 @@ class APPStartPage extends Page {
     static at = {
         title == 'Adonis Personnel Portal'
     }
+
+    static content = {
+        logoffButton { $('a', id: 'logOffLink').click() }
+    }
 }
