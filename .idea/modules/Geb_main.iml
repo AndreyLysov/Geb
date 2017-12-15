@@ -16,8 +16,8 @@
     <orderEntry type="library" name="Gradle: org.seleniumhq.selenium:selenium-chrome-driver:3.6.0" level="project" />
     <orderEntry type="library" name="Gradle: org.seleniumhq.selenium:selenium-ie-driver:3.6.0" level="project" />
     <orderEntry type="library" name="Gradle: org.gebish:geb-core:2.0" level="project" />
+    <orderEntry type="library" name="Gradle: info.cukes:cucumber-java:1.2.5" level="project" />
     <orderEntry type="library" name="Gradle: info.cukes:cucumber-core:1.2.5" level="project" />
-    <orderEntry type="library" name="Gradle: info.cukes:cucumber-groovy:1.2.5" level="project" />
     <orderEntry type="library" name="Gradle: org.seleniumhq.selenium:selenium-api:3.6.0" level="project" />
     <orderEntry type="library" name="Gradle: org.seleniumhq.selenium:selenium-remote-driver:3.6.0" level="project" />
     <orderEntry type="library" name="Gradle: net.bytebuddy:byte-buddy:1.7.5" level="project" />

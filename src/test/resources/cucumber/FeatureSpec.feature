@@ -1,40 +1,40 @@
 @loggingIn
 Feature: Loggining in
 
-  Scenario: Log in with valid credentials
+  Background:
     Given open admin portal login page
-    When enter "admin@crewportal.cp" into the email field
-    And enter "1" into the password field
+
+  Scenario: Log in with valid credentials
+    When fill in log in form
+      | Fields   | Values              |
+      | email    | admin@crewportal.cp |
+      | password | 1                   |
     And click the 'Log In' button
     Then user is on the Adonis Personnel Portal page
 
   Scenario: Log off
-    Given open admin portal login page
-    When enter "admin@crewportal.cp" into the email field
-    And enter "1" into the password field
+    When fill in log in form
+      | Fields   | Values              |
+      | email    | admin@crewportal.cp |
+      | password | 1                   |
     And click the 'Log In' button
     Then user is on the Adonis Personnel Portal page
     When click the 'Log off' button
     Then user is on the admin portal login page
 
-  Scenario: Log in with invalid email
-    Given open admin portal login page
-    When enter "admin1@crewportal.cp" into the email field
-    And enter "1" into the password field
-    And click the 'Log In' button
-    Then invalid credentials message is displayed
-
-  Scenario: Log in with invalid password
-    Given open admin portal login page
-    When enter "admin@crewportal.cp" into the email field
-    And enter "11" into the password field
-    And click the 'Log In' button
-    Then invalid credentials message is displayed
-
   Scenario: Log in with spaces
-    Given open admin portal login page
     When enter " " into the email field
     And enter " " into the password field
     And click the 'Log In' button
     Then invalid credentials message is displayed
 
+  Scenario Outline: Log in with invalid credentials
+    When enter "<Email>" into the email field
+    And enter "<Password>" into the password field
+    And click the 'Log In' button
+    Then invalid credentials message is displayed
+
+    Examples:
+      | Email                | Password |
+      | admin1@crewportal.cp | 1        |
+      | admin@crewportal.cp  | 11       |

@@ -34,6 +34,7 @@ class AAPLogInPage extends Page {
     void invalidCredentialsMessageIsAppeared() {
         Assert.assertEquals(true, invalidCredentialsMessage.isDisplayed())
     }
+
     void HeadLoginLayout() {
         Assert.assertEquals(true, HeadLoginLayout.isDisplayed())
     }
