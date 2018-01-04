@@ -1,13 +1,13 @@
 package Steps
 
+import Page.ACP.ACPLogInPage
+import Page.ACP.ACPStartPage
+import Page.ACP.CurrentTimeSheetPage
+import Page.ACP.MyTimeSheetPage
+import Page.ACP.TAAPage
 import cucumber.api.java.en.Given
 import geb.Browser
 import geb.Page
-import page.ACPLogInPage
-import page.ACPStartPage
-import page.CurrentTimeSheetPage
-import page.MyTimeSheetPage
-import page.TAAPage
 
 class CurrentTimeSheetSteps extends Page{
     ACPLogInPage acpLogInPage
@@ -23,10 +23,9 @@ class CurrentTimeSheetSteps extends Page{
         }
         acpStartPage = acpLogInPage.loginWithCredentials(30941, 1)
         assert acpStartPage.title == 'Adonis Personnel Portal'
-        acpStartPage.logOff()
-        /*taaPage = acpStartPage.navigateToTAA()
+        taaPage = acpStartPage.navigateToTAA()
         myTimeSheetPage = taaPage.navigateToMyTimeSheet()
-        currentTimeSheetPage = myTimeSheetPage.openCurrentTimeSheet()*/
+        currentTimeSheetPage = myTimeSheetPage.openCurrentTimeSheet()
     }
 
 

@@ -6,7 +6,9 @@ reportsDir = "target/geb-reports"
 */
 driver = {
     System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe")
-    new ChromeDriver()
+    def driver = new ChromeDriver()
+    driver.manage().window().maximize()
+    driver
 }
 
 

@@ -1,23 +1,24 @@
-package Page
+package Page.ACP
 
 import geb.Page
 
 class TAAPage extends Page{
     static at = {
-        title == 'http://192.168.1.202/APP_TestUpgrade/TimeAndAttendance/TimeAndAttendanceTitles'
+        browser.currentUrl == 'http://192.168.1.202/APP_TestUpgrade/TimeAndAttendance/TimeAndAttendanceTitles'
     }
 
     static content = {
-        tileMyTimeSheets {$('div', id:'divTileMyTimesheet')}
+        tileMyTimeSheets {$('div', id:'divTileMyTimesheet').click()}
         logoffButton { $('a', id: 'logOffLink').click() }
     }
 
     ACPLogInPage logOff() {
         logoffButton
-        return new ACPLogInPage()
+        browser.at ACPLogInPage
     }
 
     MyTimeSheetPage navigateToMyTimeSheet() {
-        tileMyTimeSheets.click(new MyTimeSheetPage())
+        tileMyTimeSheets
+        browser.at MyTimeSheetPage
     }
 }

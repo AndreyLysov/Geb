@@ -1,27 +1,24 @@
-package Page
+package Page.ACP
 
 import geb.Page
-import page.ACPLogInPage
 
 class MyTimeSheetPage extends Page {
     static at = {
-        title == 'http://192.168.1.202/APP_TestUpgrade/TimeAndAttendance/MyTimesheets'
+        browser.currentUrl == 'http://192.168.1.202/APP_TestUpgrade/TimeAndAttendance/MyTimesheets'
     }
 
     static content = {
-        btnCurrentTimeSheet { $('div', id: 'miTimeSheetMenu_DXI0_T') }
-        logoffButton { $('a', id: 'logOffLink').click(new ACPLogInPage()) }
+        btnCurrentTimeSheet { $('div', id: 'miTimeSheetMenu_DXI0_T').click() }
+        logoffButton { $('a', id: 'logOffLink').click() }
     }
 
     ACPLogInPage logOff() {
         logoffButton
+        browser.at ACPLogInPage
     }
 
-    void openCurrentTimeSheet() {
-        btnCurrentTimeSheet.click(new CurrentTimeSheetPage())
-    }
-
-    class CurrentTimeSheetPage {
-
+    CurrentTimeSheetPage openCurrentTimeSheet() {
+        btnCurrentTimeSheet
+        browser.at CurrentTimeSheetPage
     }
 }

@@ -1,8 +1,8 @@
 package Steps
 
+import Page.ACP.ACPLogInPage
 import cucumber.api.java.en.Given
 import geb.Browser
-import page.ACPLogInPage
 
 class ACPLogInPageSteps {
     ACPLogInPage acpLogInPage

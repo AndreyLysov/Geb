@@ -1,4 +1,4 @@
-@loggingIn
+@LogInForm
 Feature: Loggining in
 
   Background:

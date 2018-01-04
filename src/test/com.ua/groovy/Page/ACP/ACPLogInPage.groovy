@@ -1,4 +1,4 @@
-package Page
+package Page.ACP
 
 import geb.Page
 import geb.module.TextInput
@@ -20,7 +20,7 @@ class ACPLogInPage extends Page{
         fillInPin(pin)
         fillInPassword(password)
         loginButton
-        return new ACPStartPage()
+        browser.at ACPStartPage
     }
 
     void fillInPin(int pin) {
