@@ -5,33 +5,31 @@ Feature: Loggining in
     Given open admin portal login page
 
   Scenario: Log in with valid credentials
-    When fill in log in form
+    When log in with credentials
       | Fields   | Values              |
       | email    | admin@crewportal.cp |
       | password | 1                   |
-    And click the 'Log In' button
     Then user is on the Adonis Personnel Portal page
 
-  Scenario: Log off
-    When fill in log in form
+  Scenario: Log off from start page
+    When log in with credentials
       | Fields   | Values              |
       | email    | admin@crewportal.cp |
       | password | 1                   |
-    And click the 'Log In' button
     Then user is on the Adonis Personnel Portal page
-    When click the 'Log off' button
+    When click the "Log off" button
     Then user is on the admin portal login page
 
   Scenario: Log in with spaces
     When enter " " into the email field
     And enter " " into the password field
-    And click the 'Log In' button
+    And click the "Log In" button
     Then invalid credentials message is displayed
 
   Scenario Outline: Log in with invalid credentials
     When enter "<Email>" into the email field
     And enter "<Password>" into the password field
-    And click the 'Log In' button
+    And click the "Log In" button
     Then invalid credentials message is displayed
 
     Examples:

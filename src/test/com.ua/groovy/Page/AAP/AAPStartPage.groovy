@@ -1,8 +1,8 @@
-package page
+package Page.AAP
 
 import geb.Page
 
-class APPStartPage extends Page {
+class AAPStartPage extends Page {
     static url = 'http://192.168.1.202/app/adonis/StartScreen'
 
     static at = {
@@ -11,5 +11,14 @@ class APPStartPage extends Page {
 
     static content = {
         logoffButton { $('a', id: 'logOffLink').click() }
+    }
+
+    AAPLogInPage logOff() {
+        logoffButton
+        browser.at AAPLogInPage
+    }
+
+    void at() {
+        assert browser.isAt(AAPStartPage) == true
     }
 }

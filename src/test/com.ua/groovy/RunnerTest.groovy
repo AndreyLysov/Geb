@@ -6,8 +6,8 @@ import org.junit.runner.RunWith
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/cucumber",
-        glue = "steps",
-        tags = "@test",
+        glue = "Steps",
+        tags = "@loggingIn",
         snippets = SnippetType.CAMELCASE
 )
 class RunnerTest {

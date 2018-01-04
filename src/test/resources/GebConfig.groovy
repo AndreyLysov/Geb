@@ -3,12 +3,12 @@ import org.openqa.selenium.chrome.ChromeDriver
 
 baseUrl = 'http://192.168.1.202/app/adonis/administrator'
 reportsDir = "target/geb-reports"
-
+*/
 driver = {
     System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe")
     new ChromeDriver()
 }
-*/
+
 
 
 /*

@@ -1,6 +1,7 @@
-package page
+package Page.AAP
 
 import geb.Page
+import geb.module.TextInput
 import org.junit.Assert
 
 class AAPLogInPage extends Page {
@@ -10,16 +11,21 @@ class AAPLogInPage extends Page {
     }
 
     static content = {
-        txtEmail { $('input', name: 'tbEmail') }
+        txtEmail { $('input', name: 'tbEmail').module(TextInput) }
         txtPassword { $('input', name: 'tbPassword') }
         loginButton { $('div', id: 'LogIn_CD').click() }
         invalidCredentialsMessage(required: false, wait: 5) { $ 'div', id: 'popupMessage_PWC-1' }
     }
 
-    void loginWithCredentials(String email, String password) {
+    AAPStartPage navigateToStartPage(String email, String password) {
+        fillInCredentials(email, password)
+        loginButton
+        browser.at AAPStartPage
+    }
+
+    void fillInCredentials(String email, String password) {
         fillInEmail(email)
         fillInPassword(password)
-        loginButton
     }
 
 
@@ -32,10 +38,14 @@ class AAPLogInPage extends Page {
     }
 
     void invalidCredentialsMessageIsAppeared() {
-        Assert.assertEquals(true, invalidCredentialsMessage.isDisplayed())
+        assert invalidCredentialsMessage.isDisplayed() == true
     }
 
     void HeadLoginLayout() {
         Assert.assertEquals(true, HeadLoginLayout.isDisplayed())
+    }
+
+    void at() {
+        assert browser.isAt(AAPLogInPage) == true
     }
 }
