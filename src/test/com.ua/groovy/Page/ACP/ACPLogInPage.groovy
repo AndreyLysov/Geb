@@ -20,7 +20,7 @@ class ACPLogInPage extends Page{
         fillInPin(pin)
         fillInPassword(password)
         loginButton
-        browser.at ACPStartPage
+        browser.page( ACPStartPage)
     }
 
     void fillInPin(int pin) {

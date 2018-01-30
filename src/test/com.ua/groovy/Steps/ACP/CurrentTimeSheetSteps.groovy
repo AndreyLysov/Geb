@@ -1,32 +1,26 @@
 package Steps
 
 import Page.ACP.ACPLogInPage
-import Page.ACP.ACPStartPage
-import Page.ACP.CurrentTimeSheetPage
-import Page.ACP.MyTimeSheetPage
-import Page.ACP.TAAPage
 import cucumber.api.java.en.Given
+import cucumber.api.java.en.Then
 import geb.Browser
-import geb.Page
+import org.junit.Before
 
-class CurrentTimeSheetSteps extends Page{
-    ACPLogInPage acpLogInPage
-    ACPStartPage acpStartPage
-    TAAPage taaPage
-    MyTimeSheetPage myTimeSheetPage
-    CurrentTimeSheetPage currentTimeSheetPage
+class CurrentTimeSheetSteps extends BaseSteps{
 
     @Given('^navigate to the current time sheet page$')
     void navigateToTheCurrentTimeSheetPage() throws Throwable {
-        Browser.drive {
-            acpLogInPage = to ACPLogInPage
-        }
-        acpStartPage = acpLogInPage.loginWithCredentials(30941, 1)
-        assert acpStartPage.title == 'Adonis Personnel Portal'
-        taaPage = acpStartPage.navigateToTAA()
-        myTimeSheetPage = taaPage.navigateToMyTimeSheet()
-        currentTimeSheetPage = myTimeSheetPage.openCurrentTimeSheet()
+
+        app.acpLogInPage.loginWithCredentials(30941, 1)
+        app.acpStartPage.navigateToTAA()
+        app.taaPage.navigateToMyTimeSheet()
+        app.myTimeSheetPage.openCurrentTimeSheet()
     }
 
+    @Then('^user create new time registration$')
+    void userCreateNewTimeRegistration() {
 
+
+
+    }
 }

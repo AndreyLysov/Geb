@@ -6,3 +6,7 @@ Feature: Current Time Sheet
     And navigate to the current time sheet page
 
   Scenario: Add time registration
+    Then user create new time registration
+      | Fields   | Values              |
+      | email    | admin@crewportal.cp |
+      | password | 1                   |

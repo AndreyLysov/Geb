@@ -2,7 +2,7 @@
 Feature: Loggining in
 
   Background:
-    Given open admin portal login page
+    Given  open admin portal login page
 
   Scenario: Log in with valid credentials
     When log in with credentials

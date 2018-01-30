@@ -2,15 +2,14 @@ package Steps
 
 import Page.ACP.ACPLogInPage
 import cucumber.api.java.en.Given
-import geb.Browser
+import org.junit.Before
 
-class ACPLogInPageSteps {
-    ACPLogInPage acpLogInPage
+class ACPLogInPageSteps extends BaseSteps {
 
     @Given('^open crew portal login page$')
     void openCrewPortalLoginPage() throws Throwable {
-        Browser.drive {
-            acpLogInPage = to ACPLogInPage
-        }
+        /*browser.drive{
+            go ACPLogInPage
+        }*/
     }
 }
